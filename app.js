@@ -3,8 +3,7 @@ const rollDice = document.querySelector('#roll-dice');
 const hold = document.querySelector('#hold');
 const newGame = document.querySelector('#new-game');
 const imgDice = document.querySelector('.img-dice')
-const spanPlayer1 = document.querySelector('#player-1').lastChild;
-const spanPlayer2 = document.querySelector('#player-2').lastChild;
+const spanPlayer = document.querySelectorAll('span');;
 const currentScorePlayer1 = document.querySelector('#current-score-player-1');
 const currentScorePlayer2 = document.querySelector('#current-score-player-2');
 const scorePlayer1 = document.querySelector('#score-player-1');
@@ -35,6 +34,10 @@ const boucleDeJeu = () => {
         currentScorePlayer1.innerHTML = ++currentScore1;
         blocPlayer1.style.background = "#dcdcdc";
         blocPlayer2.style.background = '#f1f1f1';
+        spanPlayer[0].innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="46" height="16" fill="currentColor" class="bi bi-circle-fill text-danger d-inline-block" viewBox="0 0 16 16">
+        <circle cx="8" cy="8" r="8"/>
+      </svg>`
+      spanPlayer[1].innerHTML = ""
     }else if(randomNumber === 1){
         currentScore1 = 0
         currentScorePlayer1.innerHTML = currentScore1
@@ -44,6 +47,10 @@ const boucleDeJeu = () => {
         currentScorePlayer2.innerHTML = ++currentScore2
         blocPlayer2.style.background = "#dcdcdc";
         blocPlayer1.style.background = '#f1f1f1';
+        spanPlayer[0].innerHTML = ""
+        spanPlayer[1].innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="46" height="16" fill="currentColor" class="bi bi-circle-fill text-danger d-inline-block" viewBox="0 0 16 16">
+        <circle cx="8" cy="8" r="8"/>
+      </svg>`
     }else if(randomNumber === 1){
         currentScore2 = 0
         currentScorePlayer2.innerHTML = currentScore2
