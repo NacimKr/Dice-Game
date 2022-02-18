@@ -70,9 +70,13 @@ hold.addEventListener('click',()=>{
         scorePlayer1.innerHTML = currentScore1;
         tourPlayer1 = false;
         tourPlayer2 = true;
+        blocPlayer1.style.background = "#dcdcdc";
+        blocPlayer2.style.background = '#f1f1f1';
     }else if(tourPlayer2 && currentScore2 > 0){
         scorePlayer2.innerHTML = currentScore2
         tourPlayer2 = false;
+        blocPlayer2.style.background = "#dcdcdc";
+        blocPlayer1.style.background = '#f1f1f1';
         tourPlayer1 = true;
     }
 
