@@ -72,11 +72,19 @@ hold.addEventListener('click',()=>{
         tourPlayer2 = true;
         blocPlayer1.style.background = "#dcdcdc";
         blocPlayer2.style.background = '#f1f1f1';
+        spanPlayer[0].innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="46" height="16" fill="currentColor" class="bi bi-circle-fill text-danger d-inline-block" viewBox="0 0 16 16">
+        <circle cx="8" cy="8" r="8"/>
+      </svg>`
+      spanPlayer[1].innerHTML = ""
     }else if(tourPlayer2 && currentScore2 > 0){
         scorePlayer2.innerHTML = currentScore2
         tourPlayer2 = false;
         blocPlayer2.style.background = "#dcdcdc";
         blocPlayer1.style.background = '#f1f1f1';
+        spanPlayer[1].innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="46" height="16" fill="currentColor" class="bi bi-circle-fill text-danger d-inline-block" viewBox="0 0 16 16">
+        <circle cx="8" cy="8" r="8"/>
+      </svg>`
+      spanPlayer[0].innerHTML = ""
         tourPlayer1 = true;
     }
 
