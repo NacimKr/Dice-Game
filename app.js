@@ -10,6 +10,10 @@ const currentScorePlayer2 = document.querySelector('#current-score-player-2');
 const scorePlayer1 = document.querySelector('#score-player-1');
 const scorePlayer2 = document.querySelector('#score-player-2');
 
+//Variable recuperer pour changer le fond afin de savoir qui joue
+const blocPlayer1 = document.getElementById('bloc-player-1')
+const blocPlayer2 = document.getElementById('bloc-player-2')
+
 
 //Variblaes pour les scores
 let currentScore1 = 0
@@ -28,7 +32,9 @@ const boucleDeJeu = () => {
     imgDice.src = `images/dice-${randomNumber}.png`
     
     if(randomNumber > 1 && tourPlayer1){
-        currentScorePlayer1.innerHTML = ++currentScore1
+        currentScorePlayer1.innerHTML = ++currentScore1;
+        blocPlayer1.style.background = "#dcdcdc";
+        blocPlayer2.style.background = '#f1f1f1';
     }else if(randomNumber === 1){
         currentScore1 = 0
         currentScorePlayer1.innerHTML = currentScore1
@@ -36,6 +42,8 @@ const boucleDeJeu = () => {
         tourPlayer2 = !tourPlayer2
     }else if(randomNumber > 1 && tourPlayer2){
         currentScorePlayer2.innerHTML = ++currentScore2
+        blocPlayer2.style.background = "#dcdcdc";
+        blocPlayer1.style.background = '#f1f1f1';
     }else if(randomNumber === 1){
         currentScore2 = 0
         currentScorePlayer2.innerHTML = currentScore2
@@ -44,7 +52,6 @@ const boucleDeJeu = () => {
     }
 
 }
-
 
 //Ecouteur d'evenement lorsque qu'on lance les dés
 rollDice.addEventListener('click', boucleDeJeu)
@@ -69,13 +76,12 @@ hold.addEventListener('click',()=>{
         return;
     }
 
-
+//Lorsque l'un des joueurs à gagné j'arrête le jeu
     if(tourPlayer2 && tourPlayer1){
         rollDice.removeEventListener('click', boucleDeJeu)
     }
 
 })
-
 
 //Ecouteur d'évenement pour relancer une partie
 newGame.addEventListener('click',()=>{
